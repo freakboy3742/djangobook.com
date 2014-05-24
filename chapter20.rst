@@ -140,13 +140,6 @@ The low-level ``execute`` method takes a SQL string with ``%s`` placeholders
 and automatically escapes and inserts parameters from the list passed as the
 second argument. You should *always* construct custom SQL this way.
 
-Unfortunately, you can't use bind parameters everywhere in SQL; they're not
-allowed as identifiers (i.e., table or column names). Thus, if you need to,
-say, dynamically construct a list of tables from a ``POST`` variable, you'll
-need to escape that name in your code. Django provides a function,
-``django.db.connection.ops.quote_name``, which will escape the identifier
-according to the current database's quoting scheme.
-
 Cross-Site Scripting (XSS)
 ==========================
 
